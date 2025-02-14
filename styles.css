@@ -1,0 +1,161 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffd1dc;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-container {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 30px;
+    border: 3px solid #000;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background-color: #ff4d6d;
+    transition: width 3s ease-in-out;
+}
+
+.heart-icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: left 3s ease-in-out;
+}
+
+.heart-loading {
+    font-size: 50px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(0.8); }
+}
+
+p {
+    font-size: 18px;
+    color: #ff4d6d;
+}
+
+.button {
+    background-color: #ff4d6d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    display: none;
+}
+
+.button:hover {
+    background-color: #ff2e5a;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.envelope-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 300px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: transform 0.5s ease-in-out;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 180px;
+    background-color: #ff4d6d;
+    border-radius: 10px;
+}
+
+.envelope .top-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #ff6b81;
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.envelope .bottom-flap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #ff4d6d;
+    clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+}
+
+.envelope .card {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 100px;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.envelope-buttons {
+    margin-top: 10px;
+}
+
+.envelope-buttons button {
+    margin: 0px;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #ff4d6d;
+    font-size: 16px;
+}
